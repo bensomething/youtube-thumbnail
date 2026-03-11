@@ -17,10 +17,6 @@ import fs from "fs";
 import path from "path";
 import os from "os";
 
-interface Preferences {
-  downloadLocation: string;
-}
-
 interface ThumbnailVariant {
   key: string;
   label: string;
@@ -64,7 +60,7 @@ export default function Command() {
   const [isPrefillingUrl, setIsPrefillingUrl] = useState<boolean>(true);
   const [isLoadingThumbnails, setIsLoadingThumbnails] = useState<boolean>(false);
   const [downloadPathError, setDownloadPathError] = useState<string | null>(null);
-  const preferences = getPreferenceValues<Preferences>();
+  const preferences = getPreferenceValues();
   const downloadPath = expandHomeDirectory(preferences.downloadLocation);
 
   useEffect(() => {
@@ -571,12 +567,8 @@ ${downloadPathError}`;
     return "Loading thumbnails...";
   }
 
-  if (videoId) {
-    return `## Thumbnail Not Found  
+  return `## Thumbnail Not Found  
 This video may not have a public thumbnail image available.`;
-  }
-
-  return "Enter a YouTube URL.";
 }
 
 function getPlaceholderEmptyState(params: {
