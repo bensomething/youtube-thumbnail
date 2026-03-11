@@ -414,7 +414,7 @@ export default function Command() {
                   <Action title="Open Thumbnails" onAction={() => useHistoryUrl(entry.url)} icon={Icon.AppWindow} />
                   <Action title="Copy URL" onAction={() => Clipboard.copy(entry.url)} icon={Icon.CopyClipboard} />
                   <Action
-                    title="Remove From History"
+                    title="Remove from History"
                     onAction={() => removeHistoryEntry(entry.videoId)}
                     icon={Icon.MinusCircle}
                     style={Action.Style.Destructive}
