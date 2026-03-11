@@ -351,11 +351,7 @@ export default function Command() {
   });
 
   const listViewDropdown = (
-    <List.Dropdown
-      tooltip="View"
-      value={selectedView}
-      onChange={(value) => setSelectedView(value as SelectedView)}
-    >
+    <List.Dropdown tooltip="View" value={selectedView} onChange={(value) => setSelectedView(value as SelectedView)}>
       <List.Dropdown.Item
         title="Thumbnails"
         value="thumbnails"
